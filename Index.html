@@ -8,16 +8,17 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
   </head>
   <body>
-    <div id="vue-app">
+    <div id="app">
       <h1>Events</h1>
-      <button @click="add(1)">Add a Year</button>
-      <button v-on:click="subtract(1)">Subtract a Year</button>
-      <button @dblclick="add(10)">Add 10 Year</button>
-      <button v-on:dblclick="subtract(10)">Subtract 10 Year</button>
-      <p>My age is {{ age }}</p>
-      <div id="canvas" v-on:mousemove="updateXY">
-        {{ x }},{{ y }}
-      </div>
+      <button @click="addNewProduct()">Add new product</button>
+      <form  id="usrform">
+        <input type="text"  v-model="AddProducts"name="Dodaj z listy">
+        <input type="submit">
+     </form>
+    <button @click="AddProducts2({ id: products.length, name: AddProducts })">Dodaj do listy</button>
+      <ul>
+        <li v-for="p in products">{{ p.name }}</li>
+      </ul>
     </div>
      <script src="scripts.js"></script>
   </body>

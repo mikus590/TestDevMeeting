@@ -1,20 +1,23 @@
-new Vue({
-  el:'#vue-app',
+const app = new Vue({
+  el:'#app',
   data:{
-    age:25,
-    x:0,
-    y:0
-  },
+    products: [{
+           id: 0,
+           name: 'ProductOne'
+         }, {
+           id: 1,
+           name: 'ProductTwo'
+         }]
+       },
   methods:{
-    add:function(inc){
-      this.age += inc;
+    addNewProduct() {
+      this.products.push({ id: 12, name:'ProductThree' });
     },
-    subtract:function(dec){
-      this.age -= dec;
-    },
-    updateXY:function(event){
-      this.x = event.offsetX;
-      this.y = event.offsetY;
-    }
+    removeLast() {
+          this.products.pop();
+        },
+        AddProducts2(item){
+          this.products.push(item);
+        },
   }
 });
